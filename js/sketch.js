@@ -18,7 +18,7 @@ function setup() {
   canvas.parent("canvas-container");
   initControls();
 
-  stroke(255);
+  stroke(0, 191, 165);
   restart();
 }
 
@@ -31,7 +31,7 @@ function draw() {
 
 function restart() {
   settings = JSON.parse(JSON.stringify(nextSettings));
-  background(0);
+  background(255);
   strokeWeight(settings.pointSize);
   corners = initCorners(settings.numCorners, !settings.randomCorners);
   currentPoint = createVector(random(width), random(height));

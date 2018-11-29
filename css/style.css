@@ -1,0 +1,27 @@
+.slider-value {
+    float: right;
+    background-color: #ffff8d;
+    width: 3rem;
+    text-align: right;
+    padding-right: .5rem;
+    color: black;
+}
+
+#github-logo {
+    width: 2em;
+    height: 2em;
+    margin-top: 1em;
+}
+
+label {
+    font-size: 1em;
+}
+
+.section {
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+.nav-wrapper {
+    margin-left: 3rem;
+}

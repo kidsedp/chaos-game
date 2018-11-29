@@ -4,18 +4,20 @@
         <title>The Chaos Game</title>
         <script src="js/lib/p5.min.js"></script>
         <script src="js/lib/p5.dom.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <style>
-            .slider-value {
-                float: right;
-                background-color: yellow;
-                width: 3rem;
-                text-align: right;
-                padding-right: .5rem;
-            }
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">The Chaos Game</a>
+                <ul class="right">
+                    <li>
+                        <a href="https://github.com/kidsedp/chaos-game"><img id="github-logo" src="images/github.svg" alt="Github" /></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <div class="section">
             <div class="row">
                 <div class="col">
@@ -61,6 +63,69 @@
             </div>
         </div>
 
+        <div class="divider"></div>
+
+        <div class="section">
+            <h4>What is the Chaos Game?</h4>
+            <p>The Chaos Game (<a href="https://en.wikipedia.org/wiki/Chaos_game">wikipedia</a>) is a method for creating ordered images out of randomness. It follows a simple series of instructions, which can be summarized as follows:</p>
+            <ol>
+                <li>Pick <em>n</em> corner points at random.</li>
+                <li>Pick a starting point <em>p</em> at random.</li>
+                <li>Each turn, randomly choose one of the corner points and move some percentage of the way <em>d</em> toward that point. (Let's say halfway.) Let <em>p</em> be equal to this new location.</li>
+                <li>Draw a dot at <em>p</em>.</li>
+                <li>Go back to step 3; repeat forever.</li>
+            </ol>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h4>What do the settings do?</h4>
+            <ul>
+                <li>
+                    <h5>Points per frame</h5>
+                    The number of points that are drawn on the screen after each frame. Basically, how fast the image is drawn.
+                </li>
+                <li>
+                    <h5>Distance from last point to next corner</h5>
+                    Where the next point will be chosen. This is <em>d</em> in step 3 of the algorithm. This seems to control how "spaced out" the elements in the image appear.
+                </li>
+                <li>
+                    <h5>Pixel size</h5>
+                    How big each dot is. Bigger pixels are easier to follow, but smaller pixels look nicer.
+                </li>
+                <li>
+                    <h5>Number of corners</h5>
+                    The number of initial points to draw. This is <em>n</em> in step 1 of the algorithm.
+                </li>
+                <li>
+                    <h5>Fixed corners/random corners</h5>
+                    Fixed corners ensure the corners form a <a href="https://en.wikipedia.org/wiki/Regular_polygon">regular polygon</a> (equal spacing between all points). This ensures that you can see the image that's created as clearly as possible.
+                </li>
+                <li>
+                    <h5>Disallow repeats/allow repeats</h5>
+                    The traditional version of the Chaos Game allow any corner to be chosen in step 3 of the algorithm. However, adding the condition that a corner cannot be chosen twice in a row can create some interesting patterns. Disallowing repeats enforces this rule.
+                </li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h4>Further resources</h4>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=kbKtFN71Lfs">Numberphile</a> has an excellent video explaining the Chaos Game.</li>
+                <li><a href="https://www.youtube.com/watch?v=7gNzMtYo9n4">The Coding Train</a> created a version of the Chaos Game, which inspired this implementation.</li>
+            </ul>
+        </div>
+
+        <footer class="page-footer">
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2018 Graham Still
+                </div>
+            </div>
+        </footer>
 
         <script src="js/dom.js"></script>
         <script src="js/sketch.js"></script>

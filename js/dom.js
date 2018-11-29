@@ -26,7 +26,7 @@ function initSlider(start, end, value, key, container, downscale) {
   text.parent(container);
   slider.parent(container);
 
-  slider.changed(e => {
+  slider.input(e => {
     value = parseInt(e.target.value);
     if (downscale) {
       value /= downscale;

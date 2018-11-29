@@ -3,8 +3,41 @@
     <head>
         <title>The Chaos Game</title>
         <script src="js/lib/p5.min.js"></script>
+        <script src="js/lib/p5.dom.min.js"></script>
     </head>
     <body>
+        <div id="canvas-container"></div>
+        <label>
+            Points per frame
+            <span id="points-per-frame-parent"></span>
+        </label>
+
+        <label>
+            Distance from last point to next corner
+            <span id="distance-parent"></span>
+        </label>
+
+        <label>
+            Pixel size
+            <span id="point-size-parent"></span>
+        </label>
+
+        <label>
+            Number of corners
+            <span id="num-corners-parent"></span>
+        </label>
+
+        <label>
+            Random corners
+            <span id="random-corners-parent"></span>
+        </label>
+
+        <label>
+            Allow repeats
+            <span id="allow-repeats-parent"></span>
+        </label>
+
+        <script src="js/dom.js"></script>
         <script src="js/sketch.js"></script>
     </body>
 </html>

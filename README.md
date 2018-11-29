@@ -12,4 +12,7 @@ The Chaos Game ([wikipedia](https://en.wikipedia.org/wiki/Chaos_game)) is a meth
 ## Further resources
 * [Chaos Game - Numberphile](https://www.youtube.com/watch?v=kbKtFN71Lfs) (Video)
 * [Coding Challenge #123.1: Chaos Game Part 1](https://www.youtube.com/watch?v=7gNzMtYo9n4) (Video)
+
+## Acknowledgements
 * [p5.js](https://p5js.org/), a user-friendly JavaScript library for drawing in the browser, was used to create this application.
+* [materialize](https://materializecss.com/) was used to style the application.

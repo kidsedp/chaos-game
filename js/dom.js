@@ -1,26 +1,30 @@
 function initControls() {
-  initResetButton();
+  initButton('restart', 'restart-button-parent', restart);
 
   initSlider(1, 1000, 1, 'pointsPerFrame', 'points-per-frame-parent');
   initSlider(3, 20, 3, 'numCorners', 'num-corners-parent');
   initSlider(1, 10, 10, 'pointSize', 'point-size-parent');
   initSlider(1, 999, 500, 'distance', 'distance-parent', 1000);
 
-  initCheckbox(false, 'randomCorners', 'random-corners-parent');
-  initCheckbox(true, 'allowRepeats', 'allow-repeats-parent');
+  initSwitch('random-corners', 'randomCorners');
+  initSwitch('allow-repeats', 'allowRepeats');
 }
 
-function initResetButton() {
-  let resetButton = createButton("restart");
-  resetButton.mousePressed(restart);
+function initButton(text, container, func) {
+  let button = createButton(text);
+  button.class('btn waves-effect');
+  button.parent(container);
+  button.mousePressed(func);
 }
 
 function initSlider(start, end, value, key, container, downscale) {
   let slider = createSlider(start, end, value);
+  slider.id = 'points-per-frame';
   let text = createSpan(nextSettings[key]);
+  text.class('slider-value');
 
-  slider.parent(container);
   text.parent(container);
+  slider.parent(container);
 
   slider.changed(e => {
     value = parseInt(e.target.value);
@@ -33,11 +37,9 @@ function initSlider(start, end, value, key, container, downscale) {
   });
 }
 
-function initCheckbox(value, key, container) {
-  let checkbox = createCheckbox('', value);
-  checkbox.parent(container);
-
-  checkbox.changed(e => {
+function initSwitch(id, key) {
+  let toggle = select('#' + id);
+  toggle.changed(e => {
     nextSettings[key] = e.target.checked;
   });
 }

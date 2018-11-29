@@ -14,7 +14,7 @@ let settings;
 
 
 function setup() {
-  let canvas = createCanvas(800, 800);
+  let canvas = createCanvas(500, 500);
   canvas.parent("canvas-container");
   initControls();
 

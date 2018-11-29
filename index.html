@@ -4,38 +4,63 @@
         <title>The Chaos Game</title>
         <script src="js/lib/p5.min.js"></script>
         <script src="js/lib/p5.dom.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+            .slider-value {
+                float: right;
+                background-color: yellow;
+                width: 3rem;
+                text-align: right;
+                padding-right: .5rem;
+            }
+        </style>
     </head>
     <body>
-        <div id="canvas-container"></div>
-        <label>
-            Points per frame
-            <span id="points-per-frame-parent"></span>
-        </label>
+        <div class="section">
+            <div class="row">
+                <div class="col">
+                    <div id="canvas-container"></div>
+                </div>
+                <div class="col s3">
+                    <p>Try adjusting the settings and hitting "restart" when you've found some you'd like to try out!</p>
+                    <label class="range-field" id="points-per-frame-parent">
+                        Points per frame
+                    </label>
 
-        <label>
-            Distance from last point to next corner
-            <span id="distance-parent"></span>
-        </label>
+                    <label class="range-field" id="distance-parent">
+                        Distance from last point to next corner
+                    </label>
 
-        <label>
-            Pixel size
-            <span id="point-size-parent"></span>
-        </label>
+                    <label class="range-field" id="point-size-parent">
+                        Pixel size
+                    </label>
 
-        <label>
-            Number of corners
-            <span id="num-corners-parent"></span>
-        </label>
+                    <label class="range-field" id="num-corners-parent">
+                        Number of corners
+                    </label>
 
-        <label>
-            Random corners
-            <span id="random-corners-parent"></span>
-        </label>
+                    <div class="switch">
+                        <label>
+                            Fixed corners
+                            <input id="random-corners" type="checkbox">
+                            <span class="lever"></span>
+                            Random corners
+                        </label>
+                    </div>
 
-        <label>
-            Allow repeats
-            <span id="allow-repeats-parent"></span>
-        </label>
+                    <div class="switch">
+                        <label>
+                            Disallow repeats
+                            <input id="allow-repeats" type="checkbox" checked="checked">
+                            <span class="lever"></span>
+                            Allow repeats
+                        </label>
+                    </div>
+                    <p id="restart-button-parent"></p>
+                </div>
+            </div>
+        </div>
+
 
         <script src="js/dom.js"></script>
         <script src="js/sketch.js"></script>

@@ -4,7 +4,8 @@ function initControls() {
   initSlider(1, 1000, 1, 'pointsPerFrame', 'points-per-frame-parent');
   initSlider(3, 20, 3, 'numCorners', 'num-corners-parent');
   initSlider(1, 10, 10, 'pointSize', 'point-size-parent');
-  initSlider(1, 999, 500, 'distance', 'distance-parent', 1000);
+  initSlider(1, 999, 500, 'movementDistance', 'movement-distance-parent', 1000);
+  initSlider(1, 10, 10, 'choiceDistance', 'choice-distance-parent');
 
   initSwitch('random-corners', 'randomCorners');
   initSwitch('allow-repeats', 'allowRepeats');

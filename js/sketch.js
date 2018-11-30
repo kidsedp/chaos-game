@@ -5,15 +5,16 @@
  */
 let corners;
 let currentPoint;
-let lastCorner;
+let lastCornerIndex = 0;
 
 let nextSettings = {
   'pointsPerFrame': 1,
   'pointSize': 10,
   'randomCorners': false,
   'numCorners': 3,
-  'distance': 0.5,
-  'allowRepeats': true
+  'movementDistance': 0.5,
+  'allowRepeats': true,
+  'choiceDistance': 10
 };
 let settings;
 
@@ -38,7 +39,7 @@ function setup() {
  */
 function draw() {
   for (let i = 0; i < settings.pointsPerFrame; i++) {
-    nextPoint(settings.distance, settings.allowRepeats);
+    nextPoint(settings.movementDistance, settings.choiceDistance, settings.allowRepeats);
     point(currentPoint.x, currentPoint.y);
   }
 }
@@ -119,23 +120,25 @@ function initUniformCorners(n) {
 /**
  * Sets *currentPoint* to a new position
  *
- * @param distance  A float from 0.0 to 1.0 indicating how far to go from the
- *                  current point to the corner
+ * @param movementDistance  A float from 0.0 to 1.0 indicating how far to go from the
+ *                          current point to the corner
+ * @param cornerDistance  How far from the previous point the next point can be
  * @param allowRepeats  If true, corners that were chosen in the previous round
  *                      will be allowed.
  */
-function nextPoint(distance, allowRepeats) {
-  let nextCorner;
+function nextPoint(movementDistance, cornerDistance, allowRepeats) {
+  let nextCornerIndex;
 
   // Choose a corner. If repeats are not allowed, then if the corner was used
   // last time around, keep choosing until one that wasn't used is chosen.
   do {
-    nextCorner = random(corners);
-  } while (!allowRepeats && nextCorner == lastCorner);
+    let offset = floor(random(-cornerDistance, cornerDistance+1));
+    nextCornerIndex = (lastCornerIndex + corners.length + offset) % corners.length;
+  } while (!allowRepeats && nextCornerIndex == lastCornerIndex);
 
-  lastCorner = nextCorner;
+  lastCornerIndex = nextCornerIndex;
 
   // Set the current point some distance between its current position and the
   // chosen corner.
-  currentPoint.lerp(nextCorner, distance);
+  currentPoint.lerp(corners[nextCornerIndex], movementDistance);
 }

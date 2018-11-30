@@ -29,7 +29,7 @@
                         Points per frame
                     </label>
 
-                    <label class="range-field" id="distance-parent">
+                    <label class="range-field" id="movement-distance-parent">
                         Distance from last point to next corner
                     </label>
 
@@ -39,6 +39,10 @@
 
                     <label class="range-field" id="num-corners-parent">
                         Number of corners
+                    </label>
+
+                    <label class="range-field" id="choice-distance-parent">
+                        How far the next corner choice can be from the last
                     </label>
 
                     <div class="switch">
@@ -58,6 +62,7 @@
                             Allow repeats
                         </label>
                     </div>
+
                     <p id="restart-button-parent"></p>
                 </div>
             </div>
@@ -71,7 +76,7 @@
             <ol>
                 <li>Pick <em>n</em> corner points at random.</li>
                 <li>Pick a starting point <em>p</em> at random.</li>
-                <li>Each turn, randomly choose one of the corner points and move some percentage of the way <em>d</em> toward that point. (Let's say halfway.) Let <em>p</em> be equal to this new location.</li>
+                <li>Each turn, randomly choose one of the corner points <em>c</em> and move some percentage of the way <em>d</em> toward that point. (Let's say halfway.) Let <em>p</em> be equal to this new location.</li>
                 <li>Draw a dot at <em>p</em>.</li>
                 <li>Go back to step 3; repeat forever.</li>
             </ol>
@@ -97,6 +102,10 @@
                 <li>
                     <h5>Number of corners</h5>
                     The number of initial points to draw. This is <em>n</em> in step 1 of the algorithm.
+                </li>
+                <li>
+                    <h5>How far the next corner can be from the last</h5>
+                    Normally, any corner in the Chaos Game is allowed to be chosen each turn. This settings limits the corners that can be chosen to those <em>c</em> distance away from the previous point that was chosen. For example, given a square (4 corners), and a setting of <em>1</em> on this slider, the corners adjacent to the previous point are eligible to be chosen, but not the point across from the previous point. Note that values higher than half of the number of points (e.g. &ge;2 for triangles, &ge;3 for quadrilaterals or pentagons) will have no effect.
                 </li>
                 <li>
                     <h5>Fixed corners/random corners</h5>

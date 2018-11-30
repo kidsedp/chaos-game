@@ -1,3 +1,12 @@
+.content-panel {
+    max-width: 500px;
+    display: inline-block;
+}
+
+#control-panel {
+    margin-left: 20px;
+}
+
 .slider-value {
     float: right;
     background-color: #ffff8d;

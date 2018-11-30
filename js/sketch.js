@@ -5,7 +5,7 @@
  */
 let corners;
 let currentPoint;
-let lastChoice = -1;
+let lastCorner;
 
 let nextSettings = {
   'pointsPerFrame': 1,
@@ -125,19 +125,17 @@ function initUniformCorners(n) {
  *                      will be allowed.
  */
 function nextPoint(distance, allowRepeats) {
-  let choice;
+  let nextCorner;
 
   // Choose a corner. If repeats are not allowed, then if the corner was used
   // last time around, keep choosing until one that wasn't used is chosen.
   do {
-    choice = floor(random(corners.length));
-  } while (!allowRepeats && choice == lastChoice);
+    nextCorner = random(corners);
+  } while (!allowRepeats && nextCorner == lastCorner);
 
-  lastChoice = choice;
-  let corner = corners[choice];
+  lastCorner = nextCorner;
 
-  // Set the current point halfway between its current position and the chosen
-  // corner.
-  currentPoint.x = lerp(currentPoint.x, corner.x, distance);
-  currentPoint.y = lerp(currentPoint.y, corner.y, distance);
+  // Set the current point some distance between its current position and the
+  // chosen corner.
+  currentPoint.lerp(nextCorner, distance);
 }
